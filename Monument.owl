@@ -1,0 +1,1393 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.moument.org"
+     xml:base="http://www.moument.org"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:www="http://www.monument.org#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:ontology="http://dbpedia.org/ontology/">
+    <owl:Ontology rdf:about="http://www.monument.org">
+        <dc:creator>Rado RAKOTONIRAINY and Mojtaba MOSAVAT</dc:creator>
+        <dc:date>May 2020</dc:date>
+        <dc:title>Historical monuments of Tours city</dc:title>
+        <rdfs:comment>An ontology which covers historical monuments of Tours city as well as their contributeurs.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#altLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#example -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#example"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#gYear -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://dbpedia.org/ontology/architect -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/ontology/architect">
+        <owl:inverseOf rdf:resource="http://www.monument.org#architectOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/ArchitecturalStructure"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Architect"/>
+        <skos:altLabel>hasArchitect</skos:altLabel>
+        <skos:definition>The relation between an architectural structure and his/her architect.</skos:definition>
+        <skos:example>Eiffel tower has an architect called Gustave Eiffel</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/city -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/ontology/city">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Country"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/City"/>
+        <skos:altLabel>hasCity</skos:altLabel>
+        <skos:definition>Each country has some cities</skos:definition>
+        <skos:example>Italy has a city called Perugia.</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/country -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/ontology/country">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/City"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Country"/>
+        <skos:altLabel>hasCountry</skos:altLabel>
+        <skos:definition>Eech city is located in a country</skos:definition>
+        <skos:example>Angers is city of France</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/creator -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/ontology/creator">
+        <owl:inverseOf rdf:resource="http://www.monument.org#hasSculptor"/>
+        <skos:altLabel>sculptorOf</skos:altLabel>
+        <skos:definition>The relation between a sculptor and his sculptures.</skos:definition>
+        <skos:example>Auguste Rodin is sculptor of The Thinker</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.monument.org#architectOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.monument.org#architectOf">
+        <skos:altLabel>designed</skos:altLabel>
+        <skos:definition>Each architect has some designs used for construction of a monument</skos:definition>
+        <skos:example>Antoni Gaudí is the architect of Sagrada Família basilica</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.monument.org#districtOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.monument.org#districtOf">
+        <owl:inverseOf rdf:resource="http://www.monument.org#hasDistrict"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/cityDistrict"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/City"/>
+        <skos:altLabel>Le Marais is a district of Paris</skos:altLabel>
+        <skos:altLabel xml:lang="fr">quartier</skos:altLabel>
+        <skos:definition>Each district is a part of a city</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.monument.org#hasArchitecturalStyle -->
+
+    <owl:ObjectProperty rdf:about="http://www.monument.org#hasArchitecturalStyle">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/ArchitecturalStructure"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/architecturalStyle"/>
+        <skos:altLabel xml:lang="fr">styleArchitectural</skos:altLabel>
+        <skos:definition>An architectural structure has an architectural style.</skos:definition>
+        <skos:example>Cathedral Notre Dame de Paris has a gothic architecture</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.monument.org#hasDistrict -->
+
+    <owl:ObjectProperty rdf:about="http://www.monument.org#hasDistrict">
+        <skos:definition>Each city has some districts</skos:definition>
+        <skos:example>Tours has a district called Sanitas</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.monument.org#hasInitiator -->
+
+    <owl:ObjectProperty rdf:about="http://www.monument.org#hasInitiator">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Place"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <skos:altLabel xml:lang="fr">avoirIniciateur</skos:altLabel>
+        <skos:definition>A Place that is initiated or established by someone&apos;s idea</skos:definition>
+        <skos:example>Jardin Botanique of Tours is iniciated by Jean Anthyme Margueron</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.monument.org#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="http://www.monument.org#hasLocation">
+        <owl:inverseOf rdf:resource="http://www.monument.org#isLocatedIn"/>
+        <skos:altLabel>hasAttraction</skos:altLabel>
+        <skos:definition>Each populated place (city, country or district) has some sites (all constructed monuments).</skos:definition>
+        <skos:example>Paris has an interesting site called Les Invalides</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.monument.org#hasSculptor -->
+
+    <owl:ObjectProperty rdf:about="http://www.monument.org#hasSculptor">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Sculpture"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Sculptor"/>
+        <skos:altLabel>isCarvedBy</skos:altLabel>
+        <skos:definition>A sculpture has an sculptor.</skos:definition>
+        <skos:example>The Waltz sculpture is carved by Camille Claudel.</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.monument.org#hasStyle -->
+
+    <owl:ObjectProperty rdf:about="http://www.monument.org#hasStyle">
+        <owl:inverseOf rdf:resource="http://www.monument.org#styleOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <skos:altLabel>mouvement</skos:altLabel>
+        <skos:definition>Each sculpture has an style</skos:definition>
+        <skos:example>The thinker sculpture has a realistic style</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.monument.org#isKept -->
+
+    <owl:ObjectProperty rdf:about="http://www.monument.org#isKept">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Artwork"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Place"/>
+        <skos:altLabel>canBeFound</skos:altLabel>
+        <skos:definition>The realtion which shows the emplacement of an artwork</skos:definition>
+        <skos:example>Mona Lisa is kept in Louvre museum</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.monument.org#isLocatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.monument.org#isLocatedIn">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Place"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/Park"/>
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/PopulatedPlace"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <skos:altLabel>isPartOf</skos:altLabel>
+        <skos:definition>An attraction or a place is located in a populated place like a country or a city</skos:definition>
+        <skos:example>Palace of Versailles is located in Versailles city</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.monument.org#isMadeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.monument.org#isMadeOf">
+        <owl:inverseOf rdf:resource="http://www.monument.org#isUsedFor"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Artwork"/>
+        <rdfs:range rdf:resource="http://www.monument.org#Material"/>
+        <skos:altLabel>hasMaterial</skos:altLabel>
+        <skos:definition>Each artwork is made of some particular materials</skos:definition>
+        <skos:example>David sculpture is made of marble</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.monument.org#isUsedFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.monument.org#isUsedFor">
+        <skos:altLabel>componentOf</skos:altLabel>
+        <skos:definition>The material used in creation of an object</skos:definition>
+        <skos:example>Marble is used in construction of Frederik&apos;s Church</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.monument.org#styleOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.monument.org#styleOf">
+        <rdfs:domain rdf:resource="http://www.monument.org#SculptureStyle"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Sculpture"/>
+        <skos:altLabel>style de</skos:altLabel>
+        <skos:definition>Each style is attributed to certain sculptures</skos:definition>
+        <skos:example>Neoclassicism is the style of Venus Victrix sculpture</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://dbpedia.org/ontology/birthDate -->
+
+    <owl:DatatypeProperty rdf:about="http://dbpedia.org/ontology/birthDate">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <skos:altLabel xml:lang="fr">date de naissance</skos:altLabel>
+        <skos:definition>The birth date of a person</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/deathDate -->
+
+    <owl:DatatypeProperty rdf:about="http://dbpedia.org/ontology/deathDate">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <skos:altLabel xml:lang="fr">date de décès</skos:altLabel>
+        <skos:definition>The death date of a person</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/height -->
+
+    <owl:DatatypeProperty rdf:about="http://dbpedia.org/ontology/height">
+        <rdfs:subPropertyOf rdf:resource="http://www.monument.org#hasDimension"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/ArchitecturalStructure"/>
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/Artwork"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#double"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <skos:altLabel xml:lang="fr">hauteur</skos:altLabel>
+        <skos:definition>An artwork or a building has an height</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/width -->
+
+    <owl:DatatypeProperty rdf:about="http://dbpedia.org/ontology/width">
+        <rdfs:subPropertyOf rdf:resource="http://www.monument.org#hasDimension"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/ArchitecturalStructure"/>
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/Artwork"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#double"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <skos:altLabel xml:lang="fr">largeur</skos:altLabel>
+        <skos:definition>An artwork or a building has an zidth</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.monument.org#creationEndDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.monument.org#creationEndDate">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/ArchitecturalStructure"/>
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/Artwork"/>
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/Park"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <skos:altLabel xml:lang="fr">finDeConstruction</skos:altLabel>
+        <skos:definition>End date of construction of an object, artwork or infrastructure</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.monument.org#creationStartDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.monument.org#creationStartDate">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/ArchitecturalStructure"/>
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/Artwork"/>
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/Park"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <skos:altLabel xml:lang="fr">débutDeConstruction</skos:altLabel>
+        <skos:definition>Start date of construction of an object, artwork or infrastructure</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.monument.org#dimension -->
+
+    <owl:DatatypeProperty rdf:about="http://www.monument.org#dimension">
+        <rdfs:subPropertyOf rdf:resource="http://www.monument.org#hasDimension"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/ArchitecturalStructure"/>
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/Artwork"/>
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/Park"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#double"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <skos:altLabel xml:lang="fr">dimension</skos:altLabel>
+        <skos:definition>A park has a dimension</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.monument.org#hasDimension -->
+
+    <owl:DatatypeProperty rdf:about="http://www.monument.org#hasDimension"/>
+    
+
+
+    <!-- http://www.monument.org#hasFunction -->
+
+    <owl:DatatypeProperty rdf:about="http://www.monument.org#hasFunction">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/Artwork"/>
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/Park"/>
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/Place"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:altLabel xml:lang="fr">Fonctionnalité</skos:altLabel>
+        <skos:definition>Each place has its own functionalities</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.monument.org#length -->
+
+    <owl:DatatypeProperty rdf:about="http://www.monument.org#length">
+        <rdfs:subPropertyOf rdf:resource="http://www.monument.org#hasDimension"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/ArchitecturalStructure"/>
+                    <rdf:Description rdf:about="http://dbpedia.org/ontology/Artwork"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#double"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <skos:altLabel xml:lang="fr">longeur</skos:altLabel>
+        <skos:definition>An artwork or a building has an length</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/firstName -->
+
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/firstName">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <skos:altLabel xml:lang="fr">prénom</skos:altLabel>
+        <skos:definition>The fisrt name of a person</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/lastName -->
+
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/lastName">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <skos:altLabel xml:lang="fr">nom</skos:altLabel>
+        <skos:definition>The fisrt name of a person</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://dbpedia.org/ontology/Architect -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Architect">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Artist"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#architectOf"/>
+                <owl:someValuesFrom rdf:resource="http://dbpedia.org/ontology/ArchitecturalStructure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://dbpedia.org/ontology/Sculptor"/>
+        <rdfs:isDefinedBy>ontologist</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">architecte</skos:altLabel>
+        <skos:definition xml:lang="en">An architect is a person who plans, designs and oversees the construction of buildings.</skos:definition>
+        <skos:example>Vittorio Gregotti</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/ArchitecturalStructure -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/ArchitecturalStructure">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Place"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://dbpedia.org/ontology/architect"/>
+                <owl:someValuesFrom rdf:resource="http://dbpedia.org/ontology/Architect"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#hasArchitecturalStyle"/>
+                <owl:someValuesFrom rdf:resource="http://dbpedia.org/ontology/architecturalStyle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#isLocatedIn"/>
+                <owl:someValuesFrom rdf:resource="http://dbpedia.org/ontology/PopulatedPlace"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#hasArchitecturalStyle"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://dbpedia.org/ontology/architecturalStyle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#creationEndDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#creationStartDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://dbpedia.org/ontology/Artwork"/>
+        <rdfs:isDefinedBy>http://dbpedia.org/ontology/</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Structure architecturale</skos:altLabel>
+        <skos:definition xml:lang="en">An architectural structure is a human-made, free-standing, immobile outdoor construction</skos:definition>
+        <skos:example>Channel Tunnel</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Artist -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Artist">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdfs:isDefinedBy>http://dbpedia.org/ontology/</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Artiste</skos:altLabel>
+        <skos:definition>An artist is a person engaged in one or more of any of a broad spectrum of activities related to creating art, practicing the arts or demonstrating an art.</skos:definition>
+        <skos:example>Paul Cézanne</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Artwork -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Artwork">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#isMadeOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.monument.org#Material"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#isKept"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://dbpedia.org/ontology/Place"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://dbpedia.org/ontology/Place"/>
+        <owl:disjointWith rdf:resource="http://www.monument.org#Material"/>
+        <rdfs:isDefinedBy>http://dbpedia.org/ontology/</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Oeuvre d&apos;art</skos:altLabel>
+        <skos:definition xml:lang="en">A work of art, artwork, art piece, or art object is an aesthetic item or artistic creation.</skos:definition>
+        <skos:example>Mona Lisa painting</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Building -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Building">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/ArchitecturalStructure"/>
+        <rdfs:isDefinedBy>http://dbpedia.org/ontology/</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">bâtiment</skos:altLabel>
+        <skos:definition xml:lang="en">Building is defined as a Civil Engineering structure such as a house, worship center, factory etc. that has a foundation, wall, roof etc. that protect human being and their properties from direct harsh effect of weather like rain, wind, sun etc.</skos:definition>
+        <skos:example>Empire State Building</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Church -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Church">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/ReligiousBuilding"/>
+        <rdfs:isDefinedBy>http://dbpedia.org/ontology/</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Eglise</skos:altLabel>
+        <skos:definition xml:lang="en">This is used for church buildings, not any other meaning of church.</skos:definition>
+        <skos:example>Florence Cathedral</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/City -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/City">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/PopulatedPlace"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#hasDistrict"/>
+                <owl:someValuesFrom rdf:resource="http://dbpedia.org/ontology/cityDistrict"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://dbpedia.org/ontology/country"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://dbpedia.org/ontology/Country"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy>Ontologist</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Ville</skos:altLabel>
+        <skos:definition xml:lang="en">A city is a large human settlement. It can be defined as a permanent and densely settled place with administratively defined boundaries whose members work primarily on non-agricultural tasks.</skos:definition>
+        <skos:example>Paris</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Country -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Country">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/PopulatedPlace"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://dbpedia.org/ontology/city"/>
+                <owl:someValuesFrom rdf:resource="http://dbpedia.org/ontology/City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy>Ontologist</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Pays</skos:altLabel>
+        <skos:definition xml:lang="en">The term country refers to a political state or nation or its territory. It is often referred to as the land of an individual&apos;s birth, residence, or citizenship.</skos:definition>
+        <skos:example>Norway</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Infrastructure -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Infrastructure">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Building"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://dbpedia.org/ontology/architect"/>
+                <owl:someValuesFrom rdf:resource="http://dbpedia.org/ontology/Architect"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy>Ontologist</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Infrastructure</skos:altLabel>
+        <skos:definition xml:lang="en">Infrastructure is the fundamental facilities and systems serving a country, city, or other area, including the services and facilities necessary for its economy to function.</skos:definition>
+        <skos:example>water supply</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Park -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Park">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Place"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#hasLocation"/>
+                <owl:someValuesFrom rdf:resource="http://dbpedia.org/ontology/PopulatedPlace"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://dbpedia.org/ontology/PopulatedPlace"/>
+        <rdfs:isDefinedBy>http://dbpedia.org/ontology/</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Parc</skos:altLabel>
+        <skos:definition xml:lang="en">A park is an area of open space provided for recreational use</skos:definition>
+        <skos:example>Sequoia National Park</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Person -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Person">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://dbpedia.org/ontology/birthDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://dbpedia.org/ontology/deathDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/firstName"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/lastName"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://dbpedia.org/ontology/Place"/>
+        <owl:disjointWith rdf:resource="http://www.monument.org#Material"/>
+        <rdfs:isDefinedBy>FOAF Vocabulary</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Personne</skos:altLabel>
+        <skos:definition xml:lang="en">The Person class represents people. Something is a Person if it is a person. We don&apos;t nitpic about whether they&apos;re alive, dead, real, or imaginary.</skos:definition>
+        <skos:example>Victor Hugo</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Place -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Place">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#hasInitiator"/>
+                <owl:someValuesFrom rdf:resource="http://dbpedia.org/ontology/Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.monument.org#Material"/>
+        <rdfs:isDefinedBy>http://dbpedia.org/ontology/</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Lieu</skos:altLabel>
+        <skos:definition xml:lang="en">Immobile things or locations.</skos:definition>
+        <skos:example>Galleria Vittorio Emanuele II</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/PopulatedPlace -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/PopulatedPlace">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Place"/>
+        <rdfs:isDefinedBy>http://dbpedia.org/ontology/</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Lieu habité</skos:altLabel>
+        <skos:definition xml:lang="en">As defined by the United States Geological Survey, a populated place is a place or area with clustered or scattered buildings and a permanent human population (city, settlement, town, or village) referenced with geographic coordinates.</skos:definition>
+        <skos:example>Village</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/RailwayStation -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/RailwayStation">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Infrastructure"/>
+        <rdfs:isDefinedBy>Ontologist</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Gare ferroviaire</skos:altLabel>
+        <skos:definition xml:lang="en">A railway station is a railway facility or area where trains regularly stop to load or unload passengers or freight or both.</skos:definition>
+        <skos:example>Gare du Nord</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/ReligiousBuilding -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/ReligiousBuilding">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Building"/>
+        <rdfs:isDefinedBy>Ontologist</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">édifice religieux</skos:altLabel>
+        <skos:definition>A designed structure or consecrated space where individuals or a group of people such as a congregation come to perform acts of devotion</skos:definition>
+        <skos:example>Belz Great Synagogue</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Sculptor -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Sculptor">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Artist"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://dbpedia.org/ontology/creator"/>
+                <owl:someValuesFrom rdf:resource="http://dbpedia.org/ontology/Sculpture"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <skos:altLabel>ontologist</skos:altLabel>
+        <skos:altLabel xml:lang="fr">sculpteur</skos:altLabel>
+        <skos:definition xml:lang="en">An artist who creates the sculptures.</skos:definition>
+        <skos:example>Michelangelo</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Sculpture -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Sculpture">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Artwork"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#hasSculptor"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://dbpedia.org/ontology/Sculptor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#hasStyle"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.monument.org#SculptureStyle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy>http://dbpedia.org/ontology/</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Sculpture</skos:altLabel>
+        <skos:definition xml:lang="en">Sculpture is the branch of the visual arts that operates in three dimensions. It is one of the plastic arts. Durable sculptural processes originally used carving (the removal of material) and modelling (the addition of material, as clay), in stone, metal, ceramics, wood and other materials but, since Modernism, there has been an almost complete freedom of materials and process. A wide variety of materials may be worked by removal such as carving, assembled by welding or modelling, or molded, or cas</skos:definition>
+        <skos:example>David statue</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/architecturalStyle -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/architecturalStyle">
+        <owl:disjointWith rdf:resource="http://www.monument.org#SculptureStyle"/>
+        <rdfs:isDefinedBy>Ontologist</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Style architectural</skos:altLabel>
+        <skos:definition xml:lang="en">An architectural style is characterized by the features that make a building or other structure notable or historically identifiable.</skos:definition>
+        <skos:example>Ancient Roman architecture</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/cityDistrict -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/cityDistrict">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/PopulatedPlace"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#districtOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://dbpedia.org/ontology/City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy xml:lang="en">http://dbpedia.org/ontology/</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Quartier</skos:altLabel>
+        <skos:definition xml:lang="en">District, borough, area or neighbourhood in a city or town</skos:definition>
+        <skos:example>Le Marais district</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://www.monument.org#Basilica -->
+
+    <owl:Class rdf:about="http://www.monument.org#Basilica">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Church"/>
+        <rdfs:isDefinedBy>Ontologist</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Basilique</skos:altLabel>
+        <skos:definition xml:lang="en">Official designation of a certain kind of church in the Roman Catholic Church: a large and important place of worship that has been given special ceremonial rights by the Pope, whatever its architectural plan</skos:definition>
+        <skos:example>St. Peter&apos;s Basilica</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://www.monument.org#Cathedral -->
+
+    <owl:Class rdf:about="http://www.monument.org#Cathedral">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Church"/>
+        <rdfs:isDefinedBy>Ontologist</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Cathédrale</skos:altLabel>
+        <skos:definition xml:lang="en">A cathedral is a church that contains the cathedra (Latin for &apos;&quot;seat&quot;&apos;) of a bishop,[1] thus serving as the central church of a diocese, conference, or episcopate.</skos:definition>
+        <skos:example>Notre-Dame de Paris</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://www.monument.org#Material -->
+
+    <owl:Class rdf:about="http://www.monument.org#Material">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#isUsedFor"/>
+                <owl:someValuesFrom rdf:resource="http://dbpedia.org/ontology/Artwork"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy>Ontologist</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">Matériau</skos:altLabel>
+        <skos:definition xml:lang="en">A material is a substance or mixture of substances that constitutes an object. Materials can be pure or impure, living or non-living matter.</skos:definition>
+        <skos:example>Steel</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://www.monument.org#SculptureStyle -->
+
+    <owl:Class rdf:about="http://www.monument.org#SculptureStyle">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.monument.org#styleOf"/>
+                <owl:someValuesFrom rdf:resource="http://dbpedia.org/ontology/Sculpture"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy>Ontologist</rdfs:isDefinedBy>
+        <skos:altLabel xml:lang="fr">style de sculpture</skos:altLabel>
+        <skos:definition>An artistic style which is used in carving of a sculpture</skos:definition>
+        <skos:example>The realistic style of sculpture which is seen in The thinker sculpture</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.monument.org#Anatole_France -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Anatole_France">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Sculpture"/>
+        <www:hasSculptor rdf:resource="http://www.monument.org#François_Sicard"/>
+        <www:hasStyle rdf:resource="http://www.monument.org#style_académique"/>
+        <www:isKept rdf:resource="http://www.monument.org#Jardin_de_la_Préfecture"/>
+        <www:isMadeOf rdf:resource="http://www.monument.org#Bronze"/>
+        <ontology:height>1,28 m</ontology:height>
+        <ontology:width>1 m</ontology:width>
+        <www:creationEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1933</www:creationEndDate>
+        <www:hasFunction>décoration urbaine</www:hasFunction>
+        <www:length>1 m</www:length>
+        <rdfs:comment>Cette statue en bronze d&apos;Anatole France est située au fond du Jardin de la Préfecture de Tours. Elle est l&apos;oeuvre du sculpteur tourangeau François Sicard (1865-1934) à qui l&apos;on doit la statue de Racan ou bien encore les atlantes de l&apos;Hôtel de Ville de Tours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#BasiliqueSaint-Martin -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#BasiliqueSaint-Martin">
+        <rdf:type rdf:resource="http://www.monument.org#Basilica"/>
+        <ontology:architect rdf:resource="http://www.monument.org#Viktor_Laloux"/>
+        <www:hasArchitecturalStyle rdf:resource="http://www.monument.org#néo-byzantin"/>
+        <www:isLocatedIn rdf:resource="http://www.monument.org#Tours"/>
+        <www:isLocatedIn rdf:resource="http://www.monument.org#VieuxTours"/>
+        <ontology:height>45 m</ontology:height>
+        <ontology:width>20 m</ontology:width>
+        <www:creationEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1924</www:creationEndDate>
+        <www:creationStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1886</www:creationStartDate>
+        <www:hasFunction>culte catholique romain</www:hasFunction>
+        <www:length>53 m</www:length>
+        <rdfs:comment>La basilique Saint-Martin de Tours est un édifice religieux situé à Tours dans le Vieux-Tours, dont la crypte abrite le tombeau de Martin de Tours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Boulevard_Tonnellé -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Boulevard_Tonnellé">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/cityDistrict"/>
+        <www:districtOf rdf:resource="http://www.monument.org#Tours"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Bronze -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Bronze">
+        <rdf:type rdf:resource="http://www.monument.org#Material"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Cathédrale_Saint-Gatien -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Cathédrale_Saint-Gatien">
+        <rdf:type rdf:resource="http://www.monument.org#Cathedral"/>
+        <ontology:architect rdf:resource="http://www.monument.org#Jean_Durand"/>
+        <ontology:architect rdf:resource="http://www.monument.org#Jean_Papin"/>
+        <ontology:architect rdf:resource="http://www.monument.org#Jean_de_Dammartin"/>
+        <ontology:architect rdf:resource="http://www.monument.org#Simon_du_Mans"/>
+        <ontology:architect rdf:resource="http://www.monument.org#Étienne_de_Mortagne"/>
+        <www:hasArchitecturalStyle rdf:resource="http://www.monument.org#gothique"/>
+        <www:isLocatedIn rdf:resource="http://www.monument.org#Tours"/>
+        <www:isLocatedIn rdf:resource="http://www.monument.org#VieuxTours"/>
+        <ontology:height>29 m</ontology:height>
+        <ontology:width>46 m</ontology:width>
+        <www:creationEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1547</www:creationEndDate>
+        <www:creationStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1170</www:creationStartDate>
+        <www:hasFunction>culte catholique romain</www:hasFunction>
+        <www:length>97 m</www:length>
+        <rdfs:comment>La cathédrale Saint-Gatien de Tours est une cathédrale catholique romaine, située à Tours dans le Vieux-Tours, en Indre-et-Loire. Dédiée à saint Gatien, le premier évêque de Tours, elle est le siège de l&apos;archidiocèse de Tours et la cathédrale métropolitaine de la province ecclésiastique de Tours. Elle a été classée monument historique par liste de 1862.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#France -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#France">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
+        <ontology:city rdf:resource="http://www.monument.org#Tours"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#François_Sicard -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#François_Sicard">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Sculptor"/>
+        <ontology:birthDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1862-04-21</ontology:birthDate>
+        <ontology:deathDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1934-07-07</ontology:deathDate>
+        <foaf:firstName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">François</foaf:firstName>
+        <foaf:lastName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Sicard</foaf:lastName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Gare_de_Tours -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Gare_de_Tours">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/RailwayStation"/>
+        <ontology:architect rdf:resource="http://www.monument.org#Viktor_Laloux"/>
+        <www:hasArchitecturalStyle rdf:resource="http://www.monument.org#néo-classicisme"/>
+        <www:isLocatedIn rdf:resource="http://www.monument.org#Tours"/>
+        <www:isLocatedIn rdf:resource="http://www.monument.org#place_du_Général-Leclerc"/>
+        <www:creationEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1896</www:creationEndDate>
+        <www:creationStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1896</www:creationStartDate>
+        <www:hasFunction>gare</www:hasFunction>
+        <rdfs:comment>La gare actuelle est construite en 1896, elle remplace l’ancienne gare de 1845 qui se situait au bord du boulevard. Elle est l’œuvre d’un tourangeau, Victor Laloux qui est l’architecte de l’Hôtel de Ville et de la basilique Saint-Martin à Tours, à qui on doit aussi la gare d’Orsay à Paris. A l’époque on construit ce type de bâtiments selon trois canons : l’architecture, la peinture et la sculpture.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Jardin_botanique -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Jardin_botanique">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Park"/>
+        <www:hasInitiator rdf:resource="http://www.monument.org#Jean_Anthyme_Margueron"/>
+        <www:isLocatedIn rdf:resource="http://www.monument.org#Boulevard_Tonnellé"/>
+        <www:isLocatedIn rdf:resource="http://www.monument.org#Tours"/>
+        <www:creationEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1843</www:creationEndDate>
+        <www:dimension>5 Ha</www:dimension>
+        <www:hasFunction>parc, zoo, jardin</www:hasFunction>
+        <rdfs:comment>Le Jardin Botanique de Tours est situé à l&apos;Ouest de la ville boulevard Tonnellé, face à la l&apos;hôpital Bretonneau. Il est implanté sur une ancienne zone humide traversée autrefois par le ruisseau Sainte-Anne. Ce cours d&apos;eau reliait directement la Loire et le Cher et alimentait les douves du château de Plessis-lès-Tours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Jardin_de_la_Préfecture -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Jardin_de_la_Préfecture">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Park"/>
+        <www:isLocatedIn rdf:resource="http://www.monument.org#Tours"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Jean_Anthyme_Margueron -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Jean_Anthyme_Margueron">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <ontology:birthDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1771-06-12</ontology:birthDate>
+        <ontology:deathDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1858-02-02</ontology:deathDate>
+        <foaf:firstName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Jean-Anthyme</foaf:firstName>
+        <foaf:lastName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Margueron</foaf:lastName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Jean_Durand -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Jean_Durand">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Architect"/>
+        <foaf:firstName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Jean</foaf:firstName>
+        <foaf:lastName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Durand</foaf:lastName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Jean_Papin -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Jean_Papin">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Architect"/>
+        <foaf:firstName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Jean</foaf:firstName>
+        <foaf:lastName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Papin</foaf:lastName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Jean_de_Dammartin -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Jean_de_Dammartin">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Architect"/>
+        <ontology:birthDate>Fin du XIVe siècle</ontology:birthDate>
+        <ontology:deathDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1454</ontology:deathDate>
+        <foaf:firstName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Jean</foaf:firstName>
+        <foaf:lastName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">de Dammartin</foaf:lastName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Le_Monstre -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Le_Monstre">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Sculpture"/>
+        <www:hasSculptor rdf:resource="http://www.monument.org#Xavier_Veilhan"/>
+        <www:hasStyle rdf:resource="http://www.monument.org#art_contemporain"/>
+        <www:isKept rdf:resource="http://www.monument.org#Place_du_Grand_Marché"/>
+        <www:isMadeOf rdf:resource="http://www.monument.org#Bronze"/>
+        <www:isMadeOf rdf:resource="http://www.monument.org#Resine_Polyurethane"/>
+        <ontology:height>4,4 m</ontology:height>
+        <ontology:width>4,2 m</ontology:width>
+        <www:creationEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">2004</www:creationEndDate>
+        <www:hasFunction>décoration urbaine</www:hasFunction>
+        <www:length>3,6 m</www:length>
+        <rdfs:comment>Le Monstre, à la fois attachant et mystérieux, protecteur et menaçant, actualise dans un esprit ludique les figures héraldiques anciennement dédiées au blason de chaque cité. La statue fait ainsi écho au passé médiéval de la place dont elle pourrait devenir le nouvel emblème. Avec cette œuvre, Xavier Veilhan renouvelle la tradition de la statuaire publique monumentale.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Place_du_Grand_Marché -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Place_du_Grand_Marché">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/cityDistrict"/>
+        <www:isLocatedIn rdf:resource="http://www.monument.org#Tours"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Resine_Polyurethane -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Resine_Polyurethane">
+        <rdf:type rdf:resource="http://www.monument.org#Material"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Simon_du_Mans -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Simon_du_Mans">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Architect"/>
+        <foaf:firstName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Simon</foaf:firstName>
+        <foaf:firstName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">du Mans</foaf:firstName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Tours -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Tours">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/City"/>
+        <ontology:country rdf:resource="http://www.monument.org#France"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#VieuxTours -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#VieuxTours">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/cityDistrict"/>
+        <www:districtOf rdf:resource="http://www.monument.org#Tours"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Viktor_Laloux -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Viktor_Laloux">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Architect"/>
+        <ontology:birthDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1850-11-15</ontology:birthDate>
+        <ontology:deathDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1937-07-13</ontology:deathDate>
+        <foaf:firstName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Viktor</foaf:firstName>
+        <foaf:lastName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Laloux</foaf:lastName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Xavier_Veilhan -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Xavier_Veilhan">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Sculptor"/>
+        <ontology:birthDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1963-06-10</ontology:birthDate>
+        <foaf:firstName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Xavier</foaf:firstName>
+        <foaf:lastName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Veilhan</foaf:lastName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#art_contemporain -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#art_contemporain">
+        <rdf:type rdf:resource="http://www.monument.org#SculptureStyle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#gothique -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#gothique">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/architecturalStyle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#néo-byzantin -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#néo-byzantin">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/architecturalStyle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#néo-classicisme -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#néo-classicisme">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/architecturalStyle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#place_du_Général-Leclerc -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#place_du_Général-Leclerc">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/cityDistrict"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#style_académique -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#style_académique">
+        <rdf:type rdf:resource="http://www.monument.org#SculptureStyle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.monument.org#Étienne_de_Mortagne -->
+
+    <owl:NamedIndividual rdf:about="http://www.monument.org#Étienne_de_Mortagne">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Architect"/>
+        <foaf:firstName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Etienne</foaf:firstName>
+        <foaf:lastName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">de Mortagne</foaf:lastName>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
